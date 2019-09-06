@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Slime
+  - Laser
+  - Air
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player Bullets
+  - Player
+  - Interactables
+  - Enemies
+  - Walls
+  - Merchant
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: BG
+    uniqueID: 2615236239
+    locked: 0
+  - name: Background
+    uniqueID: 970454937
+    locked: 0
+  - name: Backwall
+    uniqueID: 4078244043
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Frontwall
+    uniqueID: 2743703955
+    locked: 0
+  - name: Ceiling
+    uniqueID: 994805799
+    locked: 0
+  - name: UI
+    uniqueID: 2588728843
+    locked: 0

@@ -1,0 +1,74 @@
+Potluck Game Jam
+
+https://itch.io/jam/potluck-game-jam
+
+
+#################
+# Chosen Themes #
+#################
+- Fast
+- Cyberpunk
+- Space
+- Retro
+- Pixel
+- Timed
+- Pot and Luck
+- Evolution
+- Archery
+- Single-Level
+- Colors
+- Lasers
+- "Your life is the currency"
+
+######################################################
+# Actual Themes Chosen cus I misunderstood the rules #
+######################################################
+- Lasers
+- Breath
+- Random
+
+#########
+# PETRA #
+#########
+A fast paced, bullet hell shooter.
+Main character is a female space hunter who shoots lasers.
+Enemies evolve over the amount of time they're left to walk around.
+When enemies die, they drop money.
+The entire game takes place in a single, large level (cyberpunk alleways and stuff).
+
+You farm the enemies for money, but the only place you can regain air is your base.
+
+You upgrade stats by buying from merchants that wander the map (therefore they have random locations). 
+Can upgrade breath, ammo, speed, health.
+
+
+###########
+# Enemies #
+###########
+There is only one kind of enemy, and it's a rock with white eyes that pursue the player.
+They have three attributes, health, speed, and damage.
+They start with a randomized base amount for each stat, depending on some kind of health of player + time formula. They also start with a pool of points to spend on their stats, also depending on current health and timer of player.
+Every 10 seconds they will spend 1/6 of their points on a random stat, so that if left alive for a full minute they evolve to their full form.
+Those gained stats reflect in their appearence, health = size, damage = how pink they are, speed = how blue they are.
+
+##########
+# Player #
+##########
+Shoots lasers that bounce once. Can only have out two at a time by default.
+The player can spend their health to upgrade their maximum amount of lasers, laser bounces, speed, or max breath.
+
+
+#######
+# Map #
+#######
+Each time the player upgrades, the merchant they bought from randomly runs around to a new location.
+Map should be partially proceduraly generated.
+
+
+##########
+# Assets #
+##########
+Space archer MC
+Arrow
+Wall
+Enemy
