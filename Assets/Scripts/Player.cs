@@ -24,6 +24,10 @@ public class Player : MonoBehaviour {
 
     public static int PLAYER_CHARGES;
 
+    public static bool IS_SUFFOCATING;
+
+    public static int UPGRADES_BOUGHT;
+
     // Use this for initialization
     void Start () {
         body = GetComponent<Rigidbody2D>();
@@ -40,6 +44,10 @@ public class Player : MonoBehaviour {
         PLAYER_MONEY = 100;
 
         PLAYER_CHARGES = 1;
+
+        IS_SUFFOCATING = false;
+
+        UPGRADES_BOUGHT = 0;
 	}
 	
 	// Update is called once per frame
@@ -61,7 +69,12 @@ public class Player : MonoBehaviour {
             spriteRenderer.flipX = true; // face left
         }
 
-        LoseBreath();
+        LoseBreath(0.08f);
+        if (PLAYER_CURRENT_BREATH <= 0) {
+            IS_SUFFOCATING = true;
+        } else {
+            IS_SUFFOCATING = false;
+        }
 	}
 
     // FixedUpdate can run once, zero, or several times per frame, depending on game settings.
@@ -76,9 +89,12 @@ public class Player : MonoBehaviour {
         body.velocity = new Vector2(horizontal * PLAYER_SPEED, vertical * PLAYER_SPEED);
     }
 
-    private void LoseBreath() {
-        PLAYER_CURRENT_BREATH -= 0.08f;
-        //Debug.Log("Current Breath: " + PLAYER_CURRENT_BREATH);
+    private void LoseBreath(float loss) {
+        if (!IS_SUFFOCATING) {
+            PLAYER_CURRENT_BREATH -= loss;
+        } else {
+            PLAYER_CURRENT_HEALTH -= loss;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -88,6 +104,12 @@ public class Player : MonoBehaviour {
             } else {
                 PLAYER_CURRENT_BREATH += 10f;
             }
+        }
+
+        if (collision.gameObject.tag == "Nugget") {
+            Destroy(collision.gameObject);
+            PLAYER_MONEY++;
+            Debug.Log(PLAYER_MONEY);
         }
     }
 }

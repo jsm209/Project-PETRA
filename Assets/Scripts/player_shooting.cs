@@ -54,7 +54,6 @@ public class player_shooting : MonoBehaviour {
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.rotation = angle + 90f;
             rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse); // Impulse because we want instant force.
-
         }
     }
 }

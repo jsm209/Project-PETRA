@@ -23,7 +23,7 @@ public class Merchant : MonoBehaviour {
     public float maxY;
 
     private void Start() {
-        price = 100;
+        price = 25;
         textArea = textObject.GetComponent<TextMesh>();
 
         // Set the wander wait time, and pick a random place to walk towards.
@@ -32,9 +32,7 @@ public class Merchant : MonoBehaviour {
     }
 
     private void Update() {
-
-        Debug.Log(isInteracting);
-
+   
         // Only when merchant isn't interacting does he move.
         if (!isInteracting) {
             transform.position = Vector2.MoveTowards(transform.position, moveSpot.position, speed * Time.deltaTime);
@@ -71,6 +69,7 @@ public class Merchant : MonoBehaviour {
                     "IT'LL COST YA DOUBLE.";
                 Player.PLAYER_MONEY -= price;
                 Player.PLAYER_CHARGES++;
+                Player.UPGRADES_BOUGHT++;
                 price = price * 2;
             } else {
                 textArea.text = "HUH? DON'T PULL ME LEG PETRA, COME BACK\n" +

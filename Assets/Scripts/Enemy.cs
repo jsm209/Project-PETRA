@@ -9,8 +9,11 @@ public class Enemy : MonoBehaviour {
     // Determines size
     public float hp = 3;
 
+    // The item to drop upon death.
+    public GameObject drop;
+
     // The target to chase
-    public Transform target;
+    private Transform target;
 
     // Determines red in RGB (less red, faster slime), causes slime to turn green.
     private float speed;
@@ -23,8 +26,12 @@ public class Enemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         trans = GetComponent<Transform>();
         sprite = GetComponent<SpriteRenderer>();
+
+        potential = 10 * (0.5f * (Player.UPGRADES_BOUGHT + 1));
+        hp = Player.UPGRADES_BOUGHT + 1;
 
         AllocateSkillpoints();
         Sizeshift();
@@ -103,10 +110,19 @@ public class Enemy : MonoBehaviour {
 
     void TakeDamage() {
         hp--;
+        SpawnRocks(Random.Range(1, 4));
         if (hp == 0) {
             Destroy(gameObject);
         } else {
             Sizeshift();
+        }
+    }
+
+    void SpawnRocks(int n) {
+        for (int i = 0; i < n; i++) {
+            GameObject rock = Instantiate(drop, transform.position, transform.rotation);
+            Rigidbody2D rb = rock.GetComponent<Rigidbody2D>();
+            rb.velocity = Random.onUnitSphere * Random.Range(0.1f, 1f) * 10;
         }
     }
 }
